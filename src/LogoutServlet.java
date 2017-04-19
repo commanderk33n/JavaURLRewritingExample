@@ -31,12 +31,13 @@ public class LogoutServlet extends HttpServlet {
                 response.addCookie(cookie);
             }
         }
-        //invalidate the session if exists
+
         HttpSession session = request.getSession(false);
         System.out.println("User=" + session.getAttribute("user"));
-        if (session != null) {
+        //invalidate the session if exists  (removed for demo purpose)
+        /*if (session != null) {
             session.invalidate();
-        }
+        } */
         //no encoding because we have invalidated the session
         response.sendRedirect("login.html");
     }
